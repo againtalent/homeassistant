@@ -133,7 +133,7 @@ action:
             target:
               entity_id: !input target_light
             data:
-              kelvin: >
+              color_temp_kelvin: >
                 {% set kelvin_new = kelvin_cur + kelvin_change %}
                 {{ [kelvin_new, kelvin_max] | min }}
 
@@ -145,7 +145,7 @@ action:
             target:
               entity_id: !input target_light
             data:
-              kelvin: "{{ kelvin_max }}"
+              color_temp_kelvin: "{{ kelvin_max }}"
 
       - conditions:
           - condition: template
@@ -155,7 +155,7 @@ action:
             target:
               entity_id: !input target_light
             data:
-              kelvin: >
+              color_temp_kelvin: >
                 {% set kelvin_new = kelvin_cur - kelvin_change %}
                 {{ [kelvin_new, kelvin_min] | max }}
 
@@ -167,6 +167,6 @@ action:
             target:
               entity_id: !input target_light
             data:
-              kelvin: "{{ kelvin_min }}"
+              color_temp_kelvin: "{{ kelvin_min }}"
 
 mode: single
